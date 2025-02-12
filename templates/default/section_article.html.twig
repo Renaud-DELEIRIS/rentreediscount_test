@@ -1,0 +1,116 @@
+{% set article = [{
+    image: asset('images/default/bloc.png'),
+    title: "Agendas & Calendriers",
+}, {
+    image: asset('images/default/sac.png'),
+    title: "Ardoises, Tableaux & Accessoires",
+},
+    {
+        image: asset('images/default/tablette.png'),
+        title: "Cahiers & Blocs",
+    },
+    {
+        image: asset('images/default/bloc.png'),
+        title: "Classement & Archivage",
+    },
+    {
+        image: asset('images/default/sac.png'),
+        title: "Ecriture & Correction",
+    },
+    {
+        image: asset('images/default/tablette.png'),
+        title: "Fournitures de bureau",
+    },
+    {
+        image: asset('images/default/bloc.png'),
+        title: "Informatique",
+    },
+    {
+        image: asset('images/default/sac.png'),
+        title: "Loisirs créatifs",
+    },
+    {
+        image: asset('images/default/tablette.png'),
+        title: "Papeterie",
+    },
+    {
+        image: asset('images/default/bloc.png'),
+        title: "Petites fournitures",
+    },
+    {
+        image: asset('images/default/sac.png'),
+        title: "Scolaire",
+    },
+    {
+        image: asset('images/default/tablette.png'),
+        title: "Services généraux",
+    },
+    {
+        image: asset('images/default/bloc.png'),
+        title: "Technologie",
+    },
+    {
+        image: asset('images/default/sac.png'),
+        title: "Textile",
+    },
+    {
+        image: asset('images/default/tablette.png'),
+        title: "Univers créatifs",
+    },
+    {
+        image: asset('images/default/bloc.png'),
+        title: "Univers papeterie",
+    },
+    {
+        image: asset('images/default/sac.png'),
+        title: "Univers scolaire",
+    },
+    {
+        image: asset('images/default/tablette.png'),
+        title: "Univers technologique",
+    },
+    {
+        image: asset('images/default/bloc.png'),
+        title: "Univers textile",
+    },
+    {
+        image: asset('images/default/sac.png'),
+        title: "Univers univers créatifs",
+    },
+    {
+        image: asset('images/default/tablette.png'),
+        title: "Univers univers papeterie",
+    },
+    {
+        image: asset('images/default/bloc.png'),
+        title: "Univers univers scolaire",
+    },
+    {
+        image: asset('images/default/sac.png'),
+        title: "Univers univers technologique",
+    },
+    {
+        image: asset('images/default/tablette.png'),
+        title: "Univers univers textile",
+    },
+    {
+        image: asset('images/default/bloc.png'),
+        title: "Univers univers créatifs",
+    }
+] %}
+
+<div class="pl-5 lg:pl-20 lg:pt-12 pt-4 pb-8">
+	<div class="flex flex-col items-start lg:gap-7 gap-1">
+		{% include 'default/section_title.html.twig' with { text: "Titre lorem ipsum dolor" } %}
+		<div class="flex items-center gap-5 lg:gap-7 flex-nowrap overflow-hidden mb-4">
+			{% for item in article %}
+				{% include 'default/article.html.twig' with item %}
+			{% endfor %}
+		</div>
+		<div class="flex flex-col w-full lg:flex-row lg:justify-between items-center gap-4 lg:px-20">
+			<div></div>
+			<div></div>
+			{% include 'components/link/basic_link.html.twig' with { text: "AFFICHER EN LISTE (18)", url: "#", class: "lg:self-end" } %}
+		</div>
+	</div>
+</div>

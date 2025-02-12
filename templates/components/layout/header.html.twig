@@ -1,0 +1,104 @@
+{% set links = [{
+    label: "Fournitures scolaires",
+    url: "#",
+}, {
+    label: "Fournitures de bureau",
+    url: "#",
+}, {
+    label: "Cartables & trousses",
+    url: "#",
+}, {
+    label: "Loisirs créatifs",
+    url: "#",
+}, {
+    label: "Cadeaux & jeux",
+    url: "#",
+}, {
+    label: "Matériel scolaire",
+    url: "#",
+}, {
+    label: "Ma jolie déco",
+    url: "#",
+}, {
+    label: "Le coin des livres",
+    url: "#",
+}] %}
+
+<header>
+	<div class="px-5 py-3 lg:px-20 flex items-center lg:gap-[60px] gap-4 shadow-headerShadow w-full">
+		<button class="lg:hidden shrink-0">
+			<image src="{{ asset('icons/burger_menu.svg') }}" alt="Menu" class="h-[22px] lg:h-[33px]">
+			<span class="sr-only">Menu</span>
+		</button>
+
+		<a href="{{ path('home_page') }}" class="shrink-0">
+			<img src="{{ asset('images/logo.svg') }}" alt="Logo" class="h-[13px] lg:h-[25px]">
+		</a>
+
+		<div class="hidden lg:block w-full">
+			{% include 'components/layout/search_bar.html.twig' with { text: "Ici tu trouveras ce que tu recherches" } %}
+		</div>
+
+		<nav class="shrink-0 ml-auto">
+			<ul class="flex items-center gap-4">
+				<li>
+					{% embed 'components/button/icon_button.html.twig' with { text: "Listes scolaires" } %}
+						{% block icon %}
+							<image src="{{ asset('icons/list.svg') }}" alt="Search icon" class="h-[22px] lg:h-[33px]">
+						{% endblock %}
+					{% endembed %}
+				</li>
+
+				<li>
+					{% embed 'components/button/icon_button.html.twig' with { text: "Me connecter" } %}
+						{% block icon %}
+							<image src="{{ asset('icons/user.svg') }}" alt="User profile" class="h-[22px] lg:h-[33px]">
+						{% endblock %}
+					{% endembed %}
+				</li>
+
+				<li>
+					{% embed 'components/button/icon_button.html.twig' with { text: "Mon panier", notification: 129 } %}
+						{% block icon %}
+							<image src="{{ asset('icons/cart.svg') }}" alt="Cart" class="h-[22px] lg:h-[33px]">
+						{% endblock %}
+					{% endembed %}
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="lg:hidden shadow-headerShadow py-4 px-5">
+		{% include 'components/layout/search_bar.html.twig' with { text: "Ici tu trouveras ce que tu recherches" } %}
+	</div>
+
+	<div class="hidden lg:block shadow-headerShadow px-[60px] py-3.5">
+		<nav>
+			<ul class="flex items-center gap-x-12 gap-y-4 flex-wrap justify-center">
+				{% for link in links %}
+					<li>
+						<a href="{{ link.url }}" class="font-semibold transition-transform group relative block hover:font-bold hover:-translate-y-1 text-base text-font-text-black">{{ link.label }}
+							<image src="{{ asset('images/scrach.svg') }}" alt="Scrach" class="hidden group-hover:inline-block absolute inset-0 w-full h-full pointer-events-none -z-10">
+						</a>
+					</li>
+				{% endfor %}
+
+				<li>
+					<a href="#" class="relative py-1.5 px-1">
+						<span class="font-semibold text-base text-white">Mise en avant</span>
+						<div class="absolute inset-0 -z-10 bg-states-error-promo rounded-[4px] -rotate-3"></div>
+					</a>
+				</li>
+
+				<li>
+					<a href="#" class="flex items-center gap-1">
+						<image src="{{ asset('icons/personalized.svg') }}" alt="Personalized">
+						<span class="font-semibold text-base text-primary/orange-dark">
+							Objets personnalisés
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>

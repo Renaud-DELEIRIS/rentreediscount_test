@@ -1,3 +1,16 @@
-body {
-    background-color: skyblue;
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'Alamain';
+    src: url('../fonts/alamain.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Asap', sans-serif;
+}
+

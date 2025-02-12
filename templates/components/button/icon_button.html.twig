@@ -1,0 +1,17 @@
+<button class="flex items-center gap-2 relative">
+	<div class="relative isolate">
+		<div class="relative"> {% block icon %}{% endblock %}
+			{% if notification is defined %}
+				<div class="absolute flex aspect-square -top-1 -right-1 lg:px-0.5 lg:py-1 px-[0.7px] py-[1px] bg-primary/orange rounded-full">
+					<span class="text-[8px] lg:text-[9px] font-medium text-white">{{ notification }}</span>
+				</div>
+			{% endif %}
+		</div>
+		<div class="absolute inset-0 w-full h-full pointer-events-none -z-10">
+			<image src="{{ asset('images/scrach.svg') }}" alt="Scrach" class="size-full -rotate-45">
+		</div>
+	</div>
+	{% if text is defined %}
+		<span class="text-[11px] font-medium leading-[16px] hidden lg:inline">{{ text }}</span>
+	{% endif %}
+</button>

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Home - My Symfony App
+{% endblock %}
+
+{% block body %}
+	{% embed 'components/layout/banner.html.twig' %}
+		{% block link %}
+			<a href="#" class="text-white">C’est bientôt la rentrée, trouvez votre liste scolaire !</a>
+		{% endblock %}
+	{% endembed %}
+	{% include 'components/layout/header.html.twig' %}
+	<div class="px-5 lg:px-20 py-3.5">
+		{% include 'components/breadcrumb.html.twig' with { items: [
+			{
+				label: "Accueil",
+				url: "#",
+			}, {
+				label: "Fournitures scolaires",
+				url: "#",
+			}, {
+				label: "Agendas et calendriers",
+				url: "#",
+			}, {
+				label: "Agendas scolaires",
+				url: "#",
+			}
+		] } %}
+	</div>
+	{% include 'default/hero.html.twig' %}
+	{% include 'default/section_article.html.twig' %}
+{% endblock %}
