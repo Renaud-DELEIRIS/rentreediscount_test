@@ -1,0 +1,116 @@
+{% set categories = [
+	{
+		slug: "sacs",
+		name: "NOS SACS À DOS"
+	},
+	{
+		slug: "agenda",
+		name: "NOS AGENDAS"
+	},
+	{
+		slug: "promos",
+		name: "NOS PROMOS"
+	}, 
+] %}
+
+{% set items = [
+	{
+		title: "Sac à dos MILKY KISS born to be a licorne 2 compartiments",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49
+	},
+	{
+		title: "Sac à dos Eastpak padded pak’R litbloom white 1 compartiment",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49,
+		discountedPrice: 39
+	},
+	{
+		title: "Sac à dos MILKY KISS born to be a licorne 2 compartiments",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49
+	},
+	{
+		title: "Sac à dos Eastpak padded pak’R litbloom white 1 compartiment",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49,
+		discountedPrice: 39
+	},
+	{
+		title: "Sac à dos MILKY KISS born to be a licorne 2 compartiments",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49
+	},
+	{
+		title: "Sac à dos Eastpak padded pak’R litbloom white 1 compartiment",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49,
+		discountedPrice: 39
+	},
+	{
+		title: "Sac à dos MILKY KISS born to be a licorne 2 compartiments",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49
+	},
+	{
+		title: "Sac à dos Eastpak padded pak’R litbloom white 1 compartiment",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49,
+		discountedPrice: 39
+	},
+	{
+		title: "Sac à dos MILKY KISS born to be a licorne 2 compartiments",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49
+	},
+	{
+		title: "Sac à dos Eastpak padded pak’R litbloom white 1 compartiment",
+		tags: ["3€ remboursés", "Nouveauté"],
+		price: 49,
+		discountedPrice: 39
+	},
+]%}
+
+<div class="flex flex-col lg:flex-row gap-2.5 lg:gap-3 pb-8 lg:pb-16">
+	<image src="{{ asset('images/default/shop.jpg') }}" alt="Shop image" class="w-full h-[180px] lg:h-[525px] object-cover lg:rounded-r-2xl shrink-0 lg:w-[593px] bg-center">
+	<div class="px-5 w-full grid h-fit">
+		{% include "default/section_title.html.twig" with { text: "La base", subtitle: "des fournitures", class: "mb-3 lg:mb-5" } %}
+		{% include "default/shop_filter.html.twig" with { categories: categories } %}
+		<div class="shop-container overflow-hidden relative px-1 w-full min-w-0">
+			<ul class="grid grid-flow-col auto-cols-[1fr] gap-5 py-5 lg:gap-7 swiper-wrapper h-[312px] lg:h-[465px]">
+				{% for item in items %}
+					<li class="swiper-slide h-full w-[154px] lg:w-[307px]">
+						{% include "default/shop_card.html.twig" with item %}
+					</li>
+				{% endfor %}
+			</ul>
+			<div class="mt-1 mb-1 flex items-center relative gap-5 lg:gap-7">
+				<div class="pagination relative w-full h-2 bg-orange-100 rounded-full overflow-hidden" style="--swiper-pagination-color: #000; --swiper-pagination-progressbar-bg-color: #F6F1ED;">
+
+					<div class="swiper-pagination-progressbar-fill absolute top-0 left-0 h-2 bg-black rounded-full"></div>
+				</div>
+				<div class="flex items-center gap-2.5">
+					{% include "components/button/icon_action.html.twig" with { icon: "mdi-light:arrow-left", class: "button-prev", variant: "secondary" } %}
+					{% include "components/button/icon_action.html.twig" with { icon: "mdi-light:arrow-right", class: "button-next", variant: "secondary" } %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+ <script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const swiper = new Swiper('.shop-container', {
+			pagination: {
+				el: '.pagination',
+				type: "progressbar",
+			},
+			navigation: {
+				nextEl: '.button-next',
+				prevEl: '.button-prev',
+			},
+			slidesPerView: 'auto',
+			loop: true,
+		});
+	});
+</script>

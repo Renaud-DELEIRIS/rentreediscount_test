@@ -1,3 +1,9 @@
-<button class="text-primary/orange hover:text-white transition-colors rounded-full bg-white hover:bg-primary/orange size-8 grid place-items-center">
+{% set variantClass = {
+	"primary": "bg-white hover:bg-primary/orange text-primary/orange hover:text-white",
+	"cta": "bg-[#E9C06F] text-white",
+	"secondary": "text-primary/orange-dark bg-secondary/orange_dark",
+} %}
+
+<button class="transition-colors shadow-ctaButton rounded-full size-8 grid place-items-center {{ variantClass[variant ?? 'primary'] }} {{ class | default('') }}">
 	{{ ux_icon(icon) }}
 </button>

@@ -1,116 +1,123 @@
 {% set article = [{
     image: asset('images/default/bloc.png'),
     title: "Agendas & Calendriers",
+    url: "#",
 }, {
     image: asset('images/default/sac.png'),
     title: "Ardoises, Tableaux & Accessoires",
+    url: "#",
 },
     {
         image: asset('images/default/tablette.png'),
         title: "Cahiers & Blocs",
+    url: "#",
     },
     {
         image: asset('images/default/bloc.png'),
         title: "Classement & Archivage",
+    url: "#",
     },
     {
         image: asset('images/default/sac.png'),
         title: "Ecriture & Correction",
+    url: "#",
     },
     {
         image: asset('images/default/tablette.png'),
         title: "Fournitures de bureau",
+    url: "#",
     },
     {
         image: asset('images/default/bloc.png'),
         title: "Informatique",
+    url: "#",
     },
     {
         image: asset('images/default/sac.png'),
         title: "Loisirs créatifs",
+    url: "#",
     },
     {
         image: asset('images/default/tablette.png'),
         title: "Papeterie",
+    url: "#",
     },
     {
         image: asset('images/default/bloc.png'),
         title: "Petites fournitures",
-    },
-    {
-        image: asset('images/default/sac.png'),
-        title: "Scolaire",
-    },
-    {
-        image: asset('images/default/tablette.png'),
-        title: "Services généraux",
-    },
-    {
-        image: asset('images/default/bloc.png'),
-        title: "Technologie",
-    },
-    {
-        image: asset('images/default/sac.png'),
-        title: "Textile",
-    },
-    {
-        image: asset('images/default/tablette.png'),
-        title: "Univers créatifs",
-    },
-    {
-        image: asset('images/default/bloc.png'),
-        title: "Univers papeterie",
-    },
-    {
-        image: asset('images/default/sac.png'),
-        title: "Univers scolaire",
-    },
-    {
-        image: asset('images/default/tablette.png'),
-        title: "Univers technologique",
-    },
-    {
-        image: asset('images/default/bloc.png'),
-        title: "Univers textile",
+    url: "#",
     },
     {
         image: asset('images/default/sac.png'),
         title: "Univers univers créatifs",
+    url: "#",
     },
     {
         image: asset('images/default/tablette.png'),
         title: "Univers univers papeterie",
+    url: "#",
     },
     {
         image: asset('images/default/bloc.png'),
         title: "Univers univers scolaire",
+    url: "#",
     },
     {
         image: asset('images/default/sac.png'),
         title: "Univers univers technologique",
+    url: "#",
     },
     {
         image: asset('images/default/tablette.png'),
         title: "Univers univers textile",
+    url: "#",
     },
     {
         image: asset('images/default/bloc.png'),
         title: "Univers univers créatifs",
+    url: "#",
     }
 ] %}
 
 <div class="pl-5 lg:pl-20 lg:pt-12 pt-4 pb-8">
 	<div class="flex flex-col items-start lg:gap-7 gap-1">
 		{% include 'default/section_title.html.twig' with { text: "Titre lorem ipsum dolor" } %}
-		<div class="flex items-center gap-5 lg:gap-7 flex-nowrap overflow-hidden mb-4">
-			{% for item in article %}
-				{% include 'default/article.html.twig' with item %}
-			{% endfor %}
-		</div>
-		<div class="flex flex-col w-full lg:flex-row lg:justify-between items-center gap-4 lg:px-20">
-			<div></div>
-			<div></div>
-			{% include 'components/link/basic_link.html.twig' with { text: "AFFICHER EN LISTE (18)", url: "#", class: "lg:self-end" } %}
+		<div class="articles-container p-1 overflow-hidden relative w-full min-w-0">
+			<ul class="flex items-center gap-5 lg:gap-7 mb-4 swiper-wrapper">
+				{% for item in article %}
+					<li class="swiper-slide w-[110px]">
+						{% include 'default/article.html.twig' with item %}
+					</li>
+				{% endfor %}
+			</ul>
+			<div class="flex flex-col w-full lg:flex-row lg:justify-between items-center gap-4 lg:px-20">
+				<div></div>
+				<div class="flex items-center !w-fit justify-center gap-0.5 h-1.5 pagination"></div>
+				{% include 'components/link/basic_link.html.twig' with { text: "AFFICHER EN LISTE (18)", url: "#", class: "lg:self-end whitespace-nowrap" } %}
+			</div>
 		</div>
 	</div>
 </div>
+
+ <script>
+				            document.addEventListener('DOMContentLoaded', function () {
+				        const swiper = new Swiper('.articles-container', {
+				            loop: true,
+                            spaceBetween: 24,
+				            pagination: {
+				                el: '.pagination',
+				                clickable: true,
+                                // Set className of bullet
+                                bulletClass: 'transition-all duration-300 ease-in-out size-1.5 bg-secondary/orange_dark rounded-full',
+                                // Set className of active bullet
+                                bulletActiveClass: '!bg-primary/orange-light w-5 h-1.5 transition-all duration-300 ease-in-out',
+				            },
+				            navigation: {
+				                nextEl: '.swiper-button-next',
+				                prevEl: '.swiper-button-prev',
+				            },
+
+                            slidesPerView: 'auto',
+				        });
+				    });
+				    </script>

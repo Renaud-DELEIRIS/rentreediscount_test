@@ -1,0 +1,15 @@
+<div class="flex gap-2.5 lg:gap-4 items-center">
+	{% for category in categories %}
+		<div class="flex relative isolate">
+			<input type="radio" id="{{ category.slug }}" name="filter" class="hidden peer" * {% if loop.first %} checked {% endif %}>
+
+			<label for="{{ category.slug }}" class="text-[11px] lg:text-[13px] font-bold tracking-[-0.33px] peer-checked:text-[#FA6200] peer-checked:underline cursor-pointer">{{ category.name }}</label>
+			<div class="absolute inset-0 w-full h-full peer-checked:block hidden -z-10 pointer-events-none">
+				{% include "components/icon/text_scratch.svg" %}
+			</div>
+		</div>
+		{% if not loop.last %}
+			{% include "default/shop_filter_dot.svg" %}
+		{% endif %}
+	{% endfor %}
+</div>

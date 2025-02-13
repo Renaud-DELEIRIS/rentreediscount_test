@@ -1,0 +1,62 @@
+{% set categories = [
+	{
+		slug: "primaire",
+		name: "ECOLE PRIMAIRE"
+	},
+	{
+		slug: "gaucher",
+		name: "GAUCHER"
+	},
+	{
+		slug: "dys",
+		name: "DYS"
+	}, 
+	{
+		slug: "enseignant",
+		name: "ENSEIGNANT"
+	}
+] %}
+
+{% set essentiels = [
+	{
+		image: asset('images/default/photo1.png'),
+		backgroundClass: "bg-[#FFE9DE]",
+		textClass: "text-black",
+		title: "profitez jusqu’à -35% sur les essentiels"
+	},
+	{
+		image: asset('images/default/photo2.jpg'),
+		backgroundClass: "bg-[#297A50]",
+		textClass: "text-white",
+		title: "une rentrée verte pour tous les élèves"
+	},
+	{
+		image: asset('images/default/photo3.png'),
+		backgroundClass: "bg-[#189AC4]",
+		textClass: "text-white",
+		title: "tout pour la primaire avec lorem ipsum"
+	},
+]%}
+
+<div class="relative isolate w-full">
+	<div class="w-full h-full absolute inset-0 pointer-events-none -z-20">
+		{% include "default/section_essentiel_background.svg" %}
+	</div>
+	<div class="lg:h-[380px] h-[170px] aspect-square absolute top-0 right-0 pointer-events-none -z-10">
+		{% include "default/section_essentiel_style.svg" %}
+	</div>
+	<div class="px-5 py-8 lg:px-20 lg:py-12">
+		{% include "default/section_title.html.twig" with { text: "Les", subtitle: "essentiels", class: "mb-3 lg:mb-5" } %}
+		{% include "default/shop_filter.html.twig" with { categories: categories } %}
+
+		<div class="mt-4">
+			<ul class="grid w-full overflow-auto grid-flow-col auto-cols-[minmax(230px,1fr)] gap-2.5 lg:gap-7">
+				{% for essentiel in essentiels %}
+					<li>
+						{% include "default/essentiel_card.html.twig" with essentiel %}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

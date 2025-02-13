@@ -1,0 +1,59 @@
+{% set priceValue = discountedPrice|default(price) %}
+{% set finalPrice = { 
+    number: priceValue|round(0, 'floor'), 
+    decimal: '%02d'|format((priceValue|round(2) % 1 * 100)|round(0, 'floor'))
+} %}
+{% set hasDiscount = discountedPrice is defined  %}
+
+<div class="rounded-2xl h-full swipper-slide flex flex-col shadow-shopCard w-[154px] lg:w-[307px]">
+	<image src="{{ asset('images/default/shop_card.jpg') }}" alt="Shop card image" class="size-[130px] lg:size-[260px] object-cover mx-auto" width="260" height="260">
+	<div class="lg:px-5 flex-1 flex flex-col px-2.5 pt-1 pb-2 lg:pb-6 lg:pt-2">
+		<div class="flex items-center gap-0.5 lg:gap-1">
+			{% for tag in tags %}
+				<div class="px-[3px] flex lg:px-2 lg:py-1 border rounded-md border-primary/orange flex-nowrap">
+					<span class="text-[9px] whitespace-nowrap lg:text-[11px] font-semibold uppercase  text-primary/orange leading-[normal]">{{ tag }}</span>
+				</div>
+			{% endfor %}
+		</div>
+		<p class="text-[12px] lg:text-[14px] font-semibold text-font-text-black mt-1 lg:mt-2.5">{{ title }}</p>
+		<div class="mt-auto">
+			<div class="flex items-end mt-1 lg:mt-2.5">
+				<div class="flex flex-col">
+					{% if hasDiscount %}
+						<p class="text-[10px] leading-[normal] lg:text-[11px] font-medium text-[#8D8C8B]">
+							A partir de
+						</p>
+						<div class="lg:hidden">
+							<p class="text-[11px] line-through leading-[normal] font-bold">
+								{{ price }}€
+							</p>
+						</div>
+					{% endif %}
+					<div class="flex items-start font-bold {{ hasDiscount ? " text-primary/orange" : " text-font-text-black"}}">
+						<span class="text-[20px] lg:text-[28px] leading-[normal]">
+							{{ finalPrice.number }}.
+						</span>
+						<span class="text-[10px] lg:text-[11px] leading-normal">
+							{{ finalPrice.decimal }}€
+						</span>
+						<p class="text-[10px] lg:text-[11px] ml-1">TTC</p>
+					</div>
+				</div>
+				{% if hasDiscount %}
+					<div class="lg:block hidden ml-4">
+						<p class="text-[14px] tracking-[-0.14px] font-bold text-font-text-black line-through">
+							{{ price }}€
+						</p>
+					</div>
+				{% endif %}
+				<div class="ml-auto">
+					{% embed 'components/button/icon_button.html.twig' %}
+						{% block icon %}
+							<image src="{{ asset('icons/cart.svg') }}" alt="Cart" class="h-[22px] lg:h-[33px]">
+						{% endblock %}
+					{% endembed %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
