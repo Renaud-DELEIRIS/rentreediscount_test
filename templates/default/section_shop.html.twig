@@ -71,8 +71,8 @@
 	},
 ]%}
 
-<div class="flex flex-col lg:flex-row gap-2.5 lg:gap-3 pb-8 lg:pb-16">
-	<image src="{{ asset('images/default/shop.jpg') }}" alt="Shop image" class="w-full h-[180px] lg:h-[525px] object-cover lg:rounded-r-2xl shrink-0 lg:w-[593px] bg-center">
+<section class="flex flex-col lg:flex-row gap-2.5 lg:gap-3 pb-8 lg:pb-16">
+	<img src="{{ asset('images/default/shop.webp') }}" alt="Shop image" class="w-full h-[180px] lg:h-[525px] object-cover lg:rounded-r-2xl shrink-0 lg:w-[593px] bg-center" loading="lazy" width="593" height="525">
 	<div class="px-5 w-full grid h-fit">
 		{% include "default/section_title.html.twig" with { text: "La base", subtitle: "des fournitures", class: "mb-3 lg:mb-5" } %}
 		{% include "default/shop_filter.html.twig" with { categories: categories } %}
@@ -96,7 +96,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
  <script>
 	document.addEventListener('DOMContentLoaded', function () {

@@ -27,12 +27,12 @@
 <header>
 	<div class="px-5 py-3 lg:px-20 flex items-center lg:gap-[60px] gap-4 shadow-headerShadow w-full">
 		<button class="lg:hidden shrink-0">
-			<image src="{{ asset('icons/burger_menu.svg') }}" alt="Menu" class="h-[22px] lg:h-[33px]">
+			{% include 'components/icons/burger_menu.svg' %}
 			<span class="sr-only">Menu</span>
 		</button>
 
 		<a href="{{ path('home_page') }}" class="shrink-0">
-			<img src="{{ asset('images/logo.svg') }}" alt="Logo" class="h-[13px] lg:h-[25px]">
+			<img src="{{ asset('images/logo.svg') }}" alt="Logo" class="h-[13px] lg:h-[25px] lg:w-[277px] w-[166px]" width="166" height="25" loading="lazy">
 		</a>
 
 		<div class="hidden lg:block w-full">
@@ -44,7 +44,10 @@
 				<li>
 					{% embed 'components/button/icon_button.html.twig' with { text: "Listes scolaires" } %}
 						{% block icon %}
-							<image src="{{ asset('icons/list.svg') }}" alt="Search icon" class="h-[22px] lg:h-[33px]">
+							<div class="h-[22px] lg:h-[33px] lg:w-6 w-4">
+								{% include 'components/icons/list.svg' %}
+							</div>
+
 						{% endblock %}
 					{% endembed %}
 				</li>
@@ -52,7 +55,9 @@
 				<li>
 					{% embed 'components/button/icon_button.html.twig' with { text: "Me connecter" } %}
 						{% block icon %}
-							<image src="{{ asset('icons/user.svg') }}" alt="User profile" class="h-[22px] lg:h-[33px]">
+							<div class="h-[22px] lg:h-[33px] lg:w-6 w-4">
+								{% include 'components/icons/user.svg' %}
+							</div>
 						{% endblock %}
 					{% endembed %}
 				</li>
@@ -60,7 +65,9 @@
 				<li>
 					{% embed 'components/button/icon_button.html.twig' with { text: "Mon panier", notification: 129 } %}
 						{% block icon %}
-							<image src="{{ asset('icons/cart.svg') }}" alt="Cart" class="h-[22px] lg:h-[33px]">
+							<div class="h-[22px] lg:h-[33px] w-[22px] lg:w-[30px]">
+								{% include 'components/icons/cart.svg' %}
+							</div>
 						{% endblock %}
 					{% endembed %}
 				</li>
@@ -78,7 +85,7 @@
 				{% for link in links %}
 					<li>
 						<a href="{{ link.url }}" class="font-semibold transition-transform group relative block hover:font-bold hover:-translate-y-1 text-base text-font-text-black">{{ link.label }}
-							<image src="{{ asset('images/scrach.svg') }}" alt="Scrach" class="hidden group-hover:inline-block absolute inset-0 w-full h-full pointer-events-none -z-10">
+							<img src="{{ asset('images/scrach.svg') }}" alt="Scrach" class="hidden group-hover:inline-block absolute inset-0 w-full h-full pointer-events-none -z-10">
 						</a>
 					</li>
 				{% endfor %}
@@ -92,7 +99,9 @@
 
 				<li>
 					<a href="#" class="flex items-center gap-1">
-						<image src="{{ asset('icons/personalized.svg') }}" alt="Personalized">
+						<div class="size-4 text-primary/orange-dark">
+							{% include 'components/icons/personalized.svg' %}
+						</div>
 						<span class="font-semibold text-base text-primary/orange-dark">
 							Objets personnalisés
 						</span>

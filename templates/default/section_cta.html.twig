@@ -1,10 +1,10 @@
-<div class="px-5 py-7 lg:pt-14 lg:pb-20 flex justify-center">
+<section class="px-5 py-7 lg:pt-14 lg:pb-20 flex justify-center">
 	<div class="flex flex-col w-full lg:flex-row-reverse rounded-2xl overflow-hidden max-w-[1100px]">
-		<image src="{{ asset('images/default/cta.png') }}" alt="CTA image" class="w-full h-[145px] lg:h-full object-cover shrink-0 lg:w-[450px] bg-center">
+		<img src="{{ asset('images/default/cta.webp') }}" alt="CTA image" class="w-full h-[145px] lg:h-full object-cover shrink-0 lg:w-[450px] bg-center" loading="lazy" width="450" height="600">
 		<div class="flex flex-col lg:px-20 lg:py-8  text-font-text-black bg-[#F5E2BC] w-full p-5">
-			<h3 class="leading-[20px] lg:leading-[30px] text-lg lg:text-[26px] uppercase font-bold mb-1 lg:mb-3">Parents, écoles, associations</h3>
+			<p class="leading-[20px] lg:leading-[30px] text-lg lg:text-[26px] uppercase font-bold mb-1 lg:mb-3">Parents, écoles, associations</p>
 			<p class="text-[12px] leading-[16px] lg:text-[14px] font-medium lg:leading-[20px] mb-4">Équipez vos héros en herbe avec notre offre spéciale de fournitures scolaires !</p>
-			{% include "components/button/icon_action.html.twig" with { icon: "mdi-light:arrow-right", variant: "cta" } %}
+			{% include "components/button/icon_action.html.twig" with { icon: "mdi-light:arrow-right", variant: "cta", text: "accéder" } %}
 		</div>
 	</div>
-</div>
+</section>

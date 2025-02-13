@@ -19,26 +19,26 @@
 
 {% set essentiels = [
 	{
-		image: asset('images/default/photo1.png'),
+		image: asset('images/default/photo1.webp'),
 		backgroundClass: "bg-[#FFE9DE]",
 		textClass: "text-black",
 		title: "profitez jusqu’à -35% sur les essentiels"
 	},
 	{
-		image: asset('images/default/photo2.jpg'),
+		image: asset('images/default/photo2.webp'),
 		backgroundClass: "bg-[#297A50]",
 		textClass: "text-white",
 		title: "une rentrée verte pour tous les élèves"
 	},
 	{
-		image: asset('images/default/photo3.png'),
+		image: asset('images/default/photo3.webp'),
 		backgroundClass: "bg-[#189AC4]",
 		textClass: "text-white",
 		title: "tout pour la primaire avec lorem ipsum"
 	},
 ]%}
 
-<div class="relative isolate w-full">
+<section class="relative isolate w-full">
 	<div class="w-full h-full absolute inset-0 pointer-events-none -z-20">
 		{% include "default/section_essentiel_background.svg" %}
 	</div>
@@ -59,4 +59,4 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</section>

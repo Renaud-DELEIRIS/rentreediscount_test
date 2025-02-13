@@ -1,17 +1,15 @@
-<div class="flex flex-col lg:flex-row items-stretch relative">
+<section class="flex flex-col lg:flex-row items-stretch relative">
 	<div class="absolute hidden lg:block z-20 w-full px-5 top-1/2 translate-y-1/2">
 		<div class="flex justify-between items-center">
-			{% include 'components/button/icon_action.html.twig' with { icon: "mdi-light:arrow-left" } %}
-			{% include 'components/button/icon_action.html.twig' with { icon: "mdi-light:arrow-right" } %}
+			{% include 'components/button/icon_action.html.twig' with { icon: "mdi-light:arrow-left", text: "slide previous" } %}
+			{% include 'components/button/icon_action.html.twig' with { icon: "mdi-light:arrow-right", text: "slide next" } %}
 		</div>
 	</div>
-	<div
-		class="w-full flex-1 z-10 lg:z- lg:absolute h-[243px] lg:h-[395px] overflow-hidden">
-		{# <img src="{{ asset('images/default/banner_desktop.svg') }}" alt="Banner" class="w-full h-full object-cover bg-center lg:w-[calc(100%-420px)] lg:ml-auto lg:max-w-[1500px]" loading="lazy" srcset="{{ asset('images/default/banner_desktop.svg') }} 1920w, {{ asset('images/default/banner_mobile.svg') }} 1024w, {{ asset('images/default/banner_mobile.svg') }} 768w, {{ asset('images/default/banner_mobile.svg') }} 320w"> #}
+	<div class="w-full flex-1 z-10 lg:z- lg:absolute h-[243px] lg:h-[395px] overflow-hidden">
 		<picture>
 			<source srcset="{{ asset('images/default/banner_desktop.svg') }}" media="(min-width: 1024px)">
 			<source srcset="{{ asset('images/default/banner_mobile.svg') }}" media="(max-width: 1024px)">
-			<img src="{{ asset('images/default/banner_desktop.svg') }}" alt="Banner" class="w-full max-h-[600px] h-full object-cover bg-center lg:w-[calc(100%-420px)] lg:ml-auto lg:max-w-[1500px]" loading="lazy">
+			<img src="{{ asset('images/default/banner_desktop.svg') }}" alt="Banner" class="w-full max-h-[600px] h-full object-cover bg-center lg:w-[calc(100%-420px)] lg:ml-auto lg:max-w-[1500px]" fetchpriority="high" width="1500" height="600">
 		</picture>
 	</div>
 	<div class="w-full lg:h-[395px] lg:z-10 -translate-y-6 lg:translate-y-0 lg:max-w-[480px] px-5 lg:pl-[90px] lg:pr-[46px] pt-14 pb-9 bg-[#A6070F] rounded-b-[20px] lg:rounded-b-none lg:rounded-r-[20px]">
@@ -23,4 +21,4 @@
 			{% embed 'components/button/elevated_button.html.twig' with { text: "La boutique de Noêl"} %}{% endembed %}
 		</div>
 	</div>
-</div>
+</section>

@@ -6,7 +6,7 @@
 {% set hasDiscount = discountedPrice is defined  %}
 
 <div class="rounded-2xl h-full swipper-slide flex flex-col shadow-shopCard w-[154px] lg:w-[307px]">
-	<image src="{{ asset('images/default/shop_card.jpg') }}" alt="Shop card image" class="size-[130px] lg:size-[260px] object-cover mx-auto" width="260" height="260">
+	<img src="{{ asset('images/default/shop_card.webp') }}" alt="Shop card image" class="size-[130px] lg:size-[260px] object-cover mx-auto" width="260" height="260" loading="lazy">
 	<div class="lg:px-5 flex-1 flex flex-col px-2.5 pt-1 pb-2 lg:pb-6 lg:pt-2">
 		<div class="flex items-center gap-0.5 lg:gap-1">
 			{% for tag in tags %}
@@ -49,7 +49,9 @@
 				<div class="ml-auto">
 					{% embed 'components/button/icon_button.html.twig' %}
 						{% block icon %}
-							<image src="{{ asset('icons/cart.svg') }}" alt="Cart" class="h-[22px] lg:h-[33px]">
+							<div class="h-[22px] lg:h-[33px] aspect-square">
+								{% include 'components/icons/cart.svg' %}
+							</div>
 						{% endblock %}
 					{% endembed %}
 				</div>
