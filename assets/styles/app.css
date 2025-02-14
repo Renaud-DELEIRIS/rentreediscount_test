@@ -14,3 +14,9 @@ body {
     font-family: 'Asap', sans-serif;
 }
 
+@layer base {
+    *::selection  {
+        @apply bg-primary/orange text-white
+    }
+}
+
