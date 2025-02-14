@@ -35,8 +35,7 @@
 				<ul class="flex items-center gap-1">
 					{% for other in others %}
 						<li class="rounded-full size-[22px]">
-							<a href="{{ other.url }}" class="">
-								<img src="{{ other.img }}" alt="{{ other.title }}" class="object-cover size-full" width="22" height="22" loading="lazy">
+							<a href="{{ other.url }}" class="bg-center bg-cover rounded-full size-full flex items-center bg-no-repeat justify-center" style="background-image: url('{{ other.img }}'); background-size: 251% 251%;">
 								<span class="sr-only">{{ other.title }}</span>
 							</a>
 						</li>
